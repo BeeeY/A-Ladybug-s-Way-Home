@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://kof8o1y41q15"]
+
+[ext_resource type="Script" uid="uid://b70d3h5qn8fpq" path="res://ladybug.gd" id="1_6aw6c"]
+[ext_resource type="Texture2D" uid="uid://dgqw03e81hkgb" path="res://assets/Ladybug3.png" id="1_x7t4f"]
+[ext_resource type="Texture2D" uid="uid://b53awkgxcosn2" path="res://assets/Ladybug4.png" id="2_6aw6c"]
+[ext_resource type="Texture2D" uid="uid://l05xg5hmghm3" path="res://assets/Ladybug1.png" id="3_rlyhn"]
+[ext_resource type="Texture2D" uid="uid://qdi2q8v3senx" path="res://assets/Ladybug2.png" id="4_ujjnk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glgfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x7t4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6aw6c")
+}],
+"loop": 1,
+"name": &"Glide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rlyhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ujjnk")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufewp"]
+radius = 5.0
+height = 16.0
+
+[node name="Ladybug" type="CharacterBody2D" unique_id=784413093]
+script = ExtResource("1_6aw6c")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901842383]
+sprite_frames = SubResource("SpriteFrames_glgfw")
+animation = &"Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862762022]
+position = Vector2(0, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ufewp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=58526050]
