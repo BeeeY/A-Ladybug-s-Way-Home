@@ -51,3 +51,5 @@ func _physics_process(delta: float) -> void:
 func _on_flower_sprung() -> void:
 	velocity.y = -500
 	
+func spawn(pos):
+	position = pos

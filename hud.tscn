@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cp1c5h2t81x3c"]
+
+[ext_resource type="Script" uid="uid://bgwddjs8scybu" path="res://hud.gd" id="1_37p78"]
+
+[node name="hud" type="Node2D" unique_id=557499150]
+script = ExtResource("1_37p78")
+
+[node name="TitleBackground" type="Sprite2D" parent="." unique_id=1440523544]
+
+[node name="Start" type="TextureButton" parent="." unique_id=787770292]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Settings" type="TextureButton" parent="." unique_id=1393784148]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
