@@ -14,7 +14,8 @@ func _process(delta: float) -> void:
 func hide_all():
 	$TitleBackground.hide()
 	$Start.hide()
-	$Settings.hide()
+	$Title.hide()
 
 func _on_start_pressed() -> void:
+	hide_all()
 	start.emit()
