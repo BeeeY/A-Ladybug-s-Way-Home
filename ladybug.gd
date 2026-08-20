@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 
+signal death
+
 var glide = false
 var glide_gravity
 
@@ -55,3 +57,8 @@ func _on_flower_sprung() -> void:
 	
 func spawn(pos):
 	position = pos
+
+
+func _on_hitbox_body_entered(body) -> void:
+	death.emit()
+	print(death)

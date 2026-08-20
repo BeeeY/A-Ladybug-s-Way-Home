@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 		$WalkDirections.hide()
 		$GlideDirections.show()
 		next_level($Level1,$Level2)
+
 	elif level == 3:
 		$GlideDirections.hide()
 		next_level($Level2,$Level3)
@@ -47,10 +48,14 @@ func next_level(currentlevel, nextlevel):
 	nextlevel.collision_enabled = true
 
 func _on_hud_start() -> void:
-	$Ladybug.spawn($PlayerSpawn.position)
+	$Ladybug.spawn($FirstSpawn.position)
 
 
 func _on_next_level_body_entered(body: Node2D) -> void:
 	level += 1
 	$Ladybug.spawn($PlayerSpawn.position)
 	print(level)
+
+
+func _on_ladybug_death() -> void:
+	$Ladybug.spawn($PlayerSpawn.position)

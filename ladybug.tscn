@@ -92,6 +92,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glgfw"]
+radius = 4.0
+height = 14.0
+
 [node name="Ladybug" type="CharacterBody2D" unique_id=784413093]
 script = ExtResource("1_6aw6c")
 
@@ -109,3 +113,14 @@ visible = false
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_ufewp")
 animation = &"Happy"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1250883273]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=401309648]
+position = Vector2(0, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_glgfw")
+debug_color = Color(0.94688195, 0.19681787, 0.32185084, 0.41960785)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
