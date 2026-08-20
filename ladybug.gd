@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 
 	if glide == true:
 		glide_gravity = get_gravity() * 0.1
-		velocity += glide_gravity * delta
+		velocity = Vector2(0,80)
 
 
 	if is_on_floor():
@@ -49,6 +49,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_flower_sprung() -> void:
+	glide = false
+	$AnimatedSprite2D.animation = "Walk"
 	velocity.y = -500
 	
 func spawn(pos):

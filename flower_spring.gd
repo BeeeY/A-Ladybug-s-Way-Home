@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	flower_sprung.emit()
 	$AnimatedSprite2D.animation = "PartlySprung"
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.animation = "Sprung"
 	await get_tree().create_timer(0.3).timeout
 	$AnimatedSprite2D.animation = "PartlySprung"

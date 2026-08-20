@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cp1c5h2t81x3c"]
 
-[ext_resource type="Script" uid="uid://bgwddjs8scybu" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Script" uid="uid://bgwddjs8scybu" path="res://Overlay.gd" id="1_37p78"]
 
-[node name="hud" type="Node2D" unique_id=557499150]
+[node name="Overlay" type="Node2D" unique_id=557499150]
 script = ExtResource("1_37p78")
 
 [node name="TitleBackground" type="Sprite2D" parent="." unique_id=1440523544]

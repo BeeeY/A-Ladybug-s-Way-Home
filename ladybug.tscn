@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://b53awkgxcosn2" path="res://assets/Ladybug4.png" id="2_6aw6c"]
 [ext_resource type="Texture2D" uid="uid://l05xg5hmghm3" path="res://assets/Ladybug1.png" id="3_rlyhn"]
 [ext_resource type="Texture2D" uid="uid://qdi2q8v3senx" path="res://assets/Ladybug2.png" id="4_ujjnk"]
+[ext_resource type="Texture2D" uid="uid://1ho01ywmaj3g" path="res://assets/Emotes2.png" id="6_7tj08"]
+[ext_resource type="Texture2D" uid="uid://dho6jqr3yyh0p" path="res://assets/Emotes1.png" id="6_rlyhn"]
+[ext_resource type="Texture2D" uid="uid://0e8r15636f23" path="res://assets/Emotes4.png" id="8_w77fk"]
+[ext_resource type="Texture2D" uid="uid://dnbyqbkc3wcq6" path="res://assets/Emotes3.png" id="9_wn5ea"]
+[ext_resource type="Texture2D" uid="uid://c5r6i12u24lbs" path="res://assets/Emotes7.png" id="10_1nono"]
+[ext_resource type="Texture2D" uid="uid://bjai63ul8n1po" path="res://assets/Emotes6.png" id="11_ftht7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_glgfw"]
 animations = [{
@@ -35,9 +41,59 @@ animations = [{
 radius = 5.0
 height = 16.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufewp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7tj08")
+}],
+"loop": 1,
+"name": &"Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rlyhn")
+}],
+"loop": 1,
+"name": &"Heart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_w77fk")
+}],
+"loop": 1,
+"name": &"No",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_wn5ea")
+}],
+"loop": 1,
+"name": &"Sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_1nono")
+}],
+"loop": 1,
+"name": &"Surprise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ftht7")
+}],
+"loop": 1,
+"name": &"Yes",
+"speed": 5.0
+}]
+
 [node name="Ladybug" type="CharacterBody2D" unique_id=784413093]
 script = ExtResource("1_6aw6c")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901842383]
 sprite_frames = SubResource("SpriteFrames_glgfw")
@@ -48,5 +104,8 @@ position = Vector2(0, 3)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ufewp")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=58526050]
-zoom = Vector2(3, 3)
+[node name="Emotes" type="AnimatedSprite2D" parent="." unique_id=1945536604]
+visible = false
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_ufewp")
+animation = &"Happy"
