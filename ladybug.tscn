@@ -49,4 +49,4 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ufewp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=58526050]
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)

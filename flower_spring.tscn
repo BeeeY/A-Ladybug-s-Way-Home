@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://yi0std3ddd6c"]
+
+[ext_resource type="Texture2D" uid="uid://b46cuxo3a3ycd" path="res://assets/Flower Spring2.png" id="1_7i2l1"]
+[ext_resource type="Script" uid="uid://o027djq2xuv6" path="res://flower_spring.gd" id="1_pgses"]
+[ext_resource type="Texture2D" uid="uid://84cwmicauktk" path="res://assets/Flower Spring3.png" id="2_pgses"]
+[ext_resource type="Texture2D" uid="uid://cc1qileg7j01r" path="res://assets/Flower Spring1.png" id="3_86j08"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufewp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7i2l1")
+}],
+"loop": 1,
+"name": &"PartlySprung",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pgses")
+}],
+"loop": 1,
+"name": &"Sprung",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_86j08")
+}],
+"loop": 1,
+"name": &"Unsprung",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
+size = Vector2(14, 6)
+
+[node name="FlowerSpring" type="Node2D" unique_id=1501873447]
+script = ExtResource("1_pgses")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=90998150]
+sprite_frames = SubResource("SpriteFrames_ufewp")
+animation = &"Unsprung"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=926893376]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=780370974]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_glgfw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
