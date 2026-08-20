@@ -14,32 +14,70 @@ func _ready() -> void:
 	$Level10.hide()
 	$GlideDirections.hide()
 	
+	$Level2.collision_enabled = false
+	$Level3.collision_enabled = false
+	$Level4.collision_enabled = false
+	$Level5.collision_enabled = false
+	$Level6.collision_enabled = false
+	$Level7.collision_enabled = false
+	$Level8.collision_enabled = false
+	$Level9.collision_enabled = false
+	$Level10.collision_enabled = false
+	
+	$FlowerSpring2.disable()
+	$FlowerSpring3.disable()
+	$FlowerSpring4.disable()
+	$FlowerSpring5.disable()
+	$FlowerSpring6.disable()
+	$FlowerSpring7.disable()
+	$FlowerSpring8.disable()
+	$FlowerSpring9.disable()
+	$FlowerSpring10.disable()
+
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if level == 2:
 		$WalkDirections.hide()
 		$GlideDirections.show()
+		$FlowerSpring.disable()
 		next_level($Level1,$Level2)
 
 	elif level == 3:
 		$GlideDirections.hide()
+		$FlowerSpring2.enable()
+		$FlowerSpring3.enable()
+		$FlowerSpring4.enable()
 		next_level($Level2,$Level3)
+		
 	elif level == 4:
+		$FlowerSpring3.disable()
+		$FlowerSpring4.disable()
 		next_level($Level3,$Level4)
+		
 	elif level == 5:
+		$FlowerSpring2.disable()
+		$FlowerSpring.enable()
+		$FlowerSpring3.enable()
 		next_level($Level4,$Level5)
+		
 	elif level == 6:
+		$FlowerSpring3.disable()
+		$FlowerSpring.disable()
+		$FlowerSpring2.enable()
 		next_level($Level5,$Level6)
+		
 	elif level == 7:
 		next_level($Level6,$Level7)
+		
 	elif level == 8:
 		next_level($Level7,$Level8)
+		
 	elif level == 9:
 		next_level($Level88,$Level9)
+		
 	elif level == 10:
 		next_level($Level9,$Level10)
-
-
 
 func next_level(currentlevel, nextlevel):
 	currentlevel.hide()
@@ -50,12 +88,9 @@ func next_level(currentlevel, nextlevel):
 func _on_hud_start() -> void:
 	$Ladybug.spawn($FirstSpawn.position)
 
-
 func _on_next_level_body_entered(body: Node2D) -> void:
 	level += 1
 	$Ladybug.spawn($PlayerSpawn.position)
-	print(level)
-
 
 func _on_ladybug_death() -> void:
 	$Ladybug.spawn($PlayerSpawn.position)

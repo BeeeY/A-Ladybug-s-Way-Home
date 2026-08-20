@@ -93,8 +93,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glgfw"]
-radius = 4.0
-height = 14.0
+radius = 5.0
+height = 16.0
 
 [node name="Ladybug" type="CharacterBody2D" unique_id=784413093]
 script = ExtResource("1_6aw6c")

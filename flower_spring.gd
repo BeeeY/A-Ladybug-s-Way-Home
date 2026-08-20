@@ -22,3 +22,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	await get_tree().create_timer(0.2).timeout
 	$AnimatedSprite2D.animation = "Unsprung"
 	
+func disable():
+	$Area2D.monitoring = false
+	hide()
+	
+func enable():
+	$Area2D.monitoring = true
+	show()

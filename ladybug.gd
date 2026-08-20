@@ -61,4 +61,3 @@ func spawn(pos):
 
 func _on_hitbox_body_entered(body) -> void:
 	death.emit()
-	print(death)
