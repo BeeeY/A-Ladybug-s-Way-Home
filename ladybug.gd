@@ -8,6 +8,9 @@ signal death
 var glide = false
 var glide_gravity
 
+func _ready() -> void:
+	$Emotes.hide()
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and glide == false:

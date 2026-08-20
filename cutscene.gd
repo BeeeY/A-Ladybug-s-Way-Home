@@ -1,6 +1,6 @@
 extends Node2D
 
-signal start
+signal start_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,15 +11,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func hide_all():
-	$TitleBackground.hide()
-	$Start.hide()
-	$Title.hide()
 
-func _on_start_pressed() -> void:
-	hide_all()
-	start.emit()
-
-
-func _on_main_win() -> void:
-	pass # Replace with function body.
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	start_game.emit()

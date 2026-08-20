@@ -109,7 +109,6 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ufewp")
 
 [node name="Emotes" type="AnimatedSprite2D" parent="." unique_id=1945536604]
-visible = false
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_ufewp")
 animation = &"Happy"

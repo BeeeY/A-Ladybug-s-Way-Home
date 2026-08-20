@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://djynyrsd5rc32"]
+
+[ext_resource type="Script" uid="uid://cvigf822bdsir" path="res://cutscene.gd" id="1_bl24s"]
+[ext_resource type="Texture2D" uid="uid://coot37w0j68e1" path="res://assets/Ladybug Background4.png" id="2_u4yv4"]
+[ext_resource type="Texture2D" uid="uid://8rcrssw5wgge" path="res://assets/Twig.png" id="3_p30sb"]
+[ext_resource type="PackedScene" uid="uid://kof8o1y41q15" path="res://ladybug.tscn" id="4_53jq0"]
+
+[sub_resource type="Animation" id="Animation_bl24s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Twig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(429, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ladybug:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21, -14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ladybug:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3q24f"]
+resource_name = "prologue"
+length = 12.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Twig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.4, 4.9, 5.4, 7.0333333, 7.9333334, 9.033334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(429, 48), Vector2(353.00003, 64), Vector2(293.99997, 89.00001), Vector2(216, 126), Vector2(150, 178), Vector2(115, 221.00002)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ladybug:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 2.1, 5.866667, 7.3, 9, 10.7, 11.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(21, -14), Vector2(282, 92), Vector2(282, 92), Vector2(173, 89), Vector2(82, 93.00001), Vector2(24, 93.00001), Vector2(-14.999996, 92)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ladybug:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.866667, 7.133333, 8.866667, 10.666667, 11.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.6239994, -3.1508038, -4.778928, -5.3043456]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Twig:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ye5a"]
+_data = {
+&"RESET": SubResource("Animation_bl24s"),
+&"prologue": SubResource("Animation_3q24f")
+}
+
+[node name="Cutscene" type="Node2D" unique_id=22315506]
+script = ExtResource("1_bl24s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=709490134]
+libraries/ = SubResource("AnimationLibrary_8ye5a")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=212372190]
+position = Vector2(200, 100)
+texture = ExtResource("2_u4yv4")
+
+[node name="Twig" type="Sprite2D" parent="." unique_id=2108879917]
+position = Vector2(429, 48)
+rotation = -8.158506
+texture = ExtResource("3_p30sb")
+
+[node name="Ladybug" parent="." unique_id=784413093 instance=ExtResource("4_53jq0")]
+position = Vector2(21, -14)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1181129588]
+position = Vector2(199, 100)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
