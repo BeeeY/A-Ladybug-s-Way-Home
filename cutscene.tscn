@@ -46,7 +46,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_3q24f"]
 resource_name = "prologue"
-length = 12.5
+length = 13.066667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -54,7 +54,7 @@ tracks/0/path = NodePath("Twig:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(4.4, 4.9, 5.4, 7.0333333, 7.9333334, 9.033334),
+"times": PackedFloat32Array(4.4, 4.9, 5.4, 6.3333335, 7.4333334, 8.533334),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(429, 48), Vector2(353.00003, 64), Vector2(293.99997, 89.00001), Vector2(216, 126), Vector2(150, 178), Vector2(115, 221.00002)]
@@ -66,7 +66,7 @@ tracks/1/path = NodePath("Ladybug:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 2.1, 5.866667, 7.3, 9, 10.7, 11.666667),
+"times": PackedFloat32Array(0.3, 2.1, 5.866667, 6.766667, 8.1, 9.433333, 11.666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(21, -14), Vector2(282, 92), Vector2(282, 92), Vector2(173, 89), Vector2(82, 93.00001), Vector2(24, 93.00001), Vector2(-14.999996, 92)]
@@ -78,7 +78,7 @@ tracks/2/path = NodePath("Ladybug:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(5.866667, 7.133333, 8.866667, 10.666667, 11.666667),
+"times": PackedFloat32Array(5.4666667, 6.6666665, 8.366667, 10.666667, 11.666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -1.6239994, -3.1508038, -4.778928, -5.3043456]

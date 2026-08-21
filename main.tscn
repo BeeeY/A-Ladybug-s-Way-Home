@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dd2d8flihbu2o" path="res://assets/Spikes3.png" id="7_w48qg"]
 [ext_resource type="Texture2D" uid="uid://s72uu84ypbml" path="res://assets/Spikes4.png" id="8_vivmo"]
 [ext_resource type="Texture2D" uid="uid://coo75b13ggue1" path="res://assets/Spikes1.png" id="10_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://djynyrsd5rc32" path="res://cutscene.tscn" id="14_vivmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufewp"]
 size = Vector2(20, 214)
@@ -180,7 +181,7 @@ position = Vector2(29, 168)
 position = Vector2(30, -8)
 
 [node name="ThankYou" type="Marker2D" parent="." unique_id=525829886]
-position = Vector2(196, 146)
+position = Vector2(243, 171)
 
 [node name="NextLevel" type="Area2D" parent="." unique_id=218171456]
 position = Vector2(402, 104)
@@ -189,10 +190,22 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel" unique_id=1065873869]
 shape = SubResource("RectangleShape2D_glgfw")
 
-[node name="hud" parent="." unique_id=557499150 instance=ExtResource("3_7mycd")]
-visible = false
+[node name="Cutscene" parent="." unique_id=22315506 instance=ExtResource("14_vivmo")]
 
-[connection signal="win" from="." to="hud" method="_on_main_win"]
+[node name="Overlay" parent="." unique_id=557499150 instance=ExtResource("3_7mycd")]
+
+[node name="Thanks" type="Label" parent="." unique_id=1410397714]
+offset_left = 8.0
+offset_top = 70.0
+offset_right = 250.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("3_5vw27")
+theme_override_font_sizes/font_size = 25
+text = "Thank You
+ for Playing!"
+horizontal_alignment = 1
+
+[connection signal="win" from="." to="Overlay" method="_on_main_win"]
 [connection signal="body_entered" from="Home" to="." method="_on_home_body_entered"]
 [connection signal="flower_sprung" from="FlowerSpring" to="Ladybug" method="_on_flower_sprung"]
 [connection signal="flower_sprung" from="FlowerSpring2" to="Ladybug" method="_on_flower_sprung"]
@@ -201,4 +214,5 @@ visible = false
 [connection signal="flower_sprung" from="FlowerSpring5" to="Ladybug" method="_on_flower_sprung"]
 [connection signal="death" from="Ladybug" to="." method="_on_ladybug_death"]
 [connection signal="body_entered" from="NextLevel" to="." method="_on_next_level_body_entered"]
-[connection signal="start" from="hud" to="." method="_on_hud_start"]
+[connection signal="start_game" from="Cutscene" to="." method="_on_cutscene_start_game"]
+[connection signal="start" from="Overlay" to="." method="_on_hud_start"]

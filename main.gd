@@ -16,6 +16,7 @@ func _ready() -> void:
 	$GlideDirections.hide()
 	$GlideDirections2.hide()
 	$HouseBackground.hide()
+	$Thanks.hide()
 	
 	$Level2.collision_enabled = false
 	$Level3.collision_enabled = false
@@ -85,11 +86,23 @@ func next_level(currentlevel, nextlevel):
 	nextlevel.collision_enabled = true
 
 func _on_hud_start() -> void:
+	$Cutscene/AnimationPlayer.play("prologue")
+	await get_tree().create_timer(3).timeout
+	$Cutscene/Ladybug/Emotes.animation = "Happy"
+	$Cutscene/Ladybug/Emotes.show()
+	await get_tree().create_timer(1.5).timeout
+	$Cutscene/Ladybug/Emotes.animation = "Surprise"
+	await get_tree().create_timer(1).timeout
+	$Cutscene/Ladybug/Emotes.hide()
+	
+func _on_cutscene_start_game() -> void:
+	$Cutscene.hide()
 	$Ladybug.spawn($FirstSpawn.position)
-
+		
 func _on_next_level_body_entered(body: Node2D) -> void:
 	level += 1
 	$Ladybug.spawn($PlayerSpawn.position)
+
 
 func _on_ladybug_death() -> void:
 	$Ladybug.spawn($PlayerSpawn.position)
@@ -99,5 +112,7 @@ func _on_home_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and level == 8:
 		$Ladybug/Emotes.animation = "Heart"
 		$Ladybug/Emotes.show()
+		$Ladybug.set_physics_process(false)
 		$Ladybug.spawn($ThankYou.position)
+		$Thanks.show()
 		win.emit()
